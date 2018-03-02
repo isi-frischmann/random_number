@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<script>
+	
+
+/*pseudocode:
+- set the input for coints
+- set winning number
+- set random number between 0-99
+- When number is 0-50 you should loose one coint
+- Add winning numbers to balance 
+- If number is over 50 add the result to the balance 
+*/
+
+//Don't forget that math.random is counting numbers between 0 and almost 1;
+
+
+function randomChance(coins) {
+
+	var winningNumber = 8;
+	var play = Math.floor(Math.random()*100) // The chances of you winning
+	var win = Math.floor(Math.random()*50)+51; //How many coins you will win when you won the winningNumber //The *50 means a random number until 0-49; And then adding 51 will make it 50 - 100; So when you win you will win a number(coins) between 50-100; 
+	var balance = coins; 
+	
+	while (balance > 0) {
+		console.log(play) //Prints the number which you roled 
+
+		if (play == winningNumber) {
+			balance = balance + win;
+			console.log("Your won "+ win +" coins");
+			break
+		}
+		else if (play != winningNumber) {
+			balance = balance - 1;
+			play = Math.floor(Math.random()*100); //This means that a new random.number should be picked. So it continue to play. When you don't implement this code you will always score the same number until you don't have any coins left.
+			console.log("You have "+ balance +". remaining");
+		}	
+		else {
+			balance == 0;
+			console.log("I'm sorry you lost. All your coins are used already");
+		}
+	}
+}
+
+randomChance(50);
+
+</script>
+</html>
